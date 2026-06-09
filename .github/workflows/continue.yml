@@ -1,8 +1,12 @@
-name: Website Deployment
+name: Continue Website Deployment
 on:
   push:
     branches:
       - main
+
+#In case of if we are able to run a part of code even if someother step fails but the overall job is still considered to be an errorr
+#In case of continue on errro the next steps run in case of error and the overall job is also takes as success
+#concludion -> the condition after applying continue on errro which is generally success
 jobs:
   lint:
     runs-on: ubuntu-latest
