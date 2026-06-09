@@ -35,10 +35,10 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Test code
+        continue-on-error: true
         id: run-tests
         run: npm run test
       - name: Upload test report
-        if: failure() && steps.run-tests.outcome == 'failure'
         #Check the difference between outcome and conclusion
         #In the above example we make sure that this code is run in case of an error and that error occurs in run test step
         uses: actions/upload-artifact@v4
