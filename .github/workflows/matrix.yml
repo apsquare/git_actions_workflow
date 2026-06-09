@@ -7,7 +7,12 @@ jobs:
       matrix:
         node-version: [12, 14, 16]
         operating-system: [ubuntu-latest, windows-latest]
-        #It will run multiple parallel jobs with these differnt operating systems
+        include: # It helps us to add stand alone combination
+          - node-version: 18
+            operating-system: ubuntu-latest
+        exclude: # It helps us to exclude specific combinations
+          - node-version: 12
+            operating-system: windows-latest
     runs-on: ${{ matrix.operating-system}}
     steps:
       - name: Get Code
