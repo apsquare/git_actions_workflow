@@ -7,10 +7,10 @@ jobs:
       matrix:
         node-version: [12, 14, 16]
         operating-system: [ubuntu-latest, windows-latest]
-        include: # It helps us to add stand alone combination
+        include:
           - node-version: 18
             operating-system: ubuntu-latest
-        exclude: # It helps us to exclude specific combinations
+        exclude:
           - node-version: 12
             operating-system: windows-latest
     runs-on: ${{ matrix.operating-system}}
